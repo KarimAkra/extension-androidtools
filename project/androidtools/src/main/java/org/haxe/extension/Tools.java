@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.haxe.extension.Extension;
 import org.haxe.lime.HaxeObject;
+import android.os.Environment;
 
 /* 
 	You can use the Android Extension class in order to hook
@@ -66,6 +67,16 @@ public class Tools extends Extension
 	public static void initCallBack(final HaxeObject cbObject)
 	{
 		Tools.cbObject = cbObject;
+	}
+
+	public static boolean isExternalStorageManager() {
+		if (Build.VERSION.SDK_INT > Build.VERSION_CODES.Q)
+			return Environment.isExternalStorageManager();
+		else {
+			List<String> tmp = new ArrayList<String>(Arrays.asList(getGrantedPermissions()));
+			return tmp.contains("android.permission.READ_EXTERNAL_STORAGE")
+					&& tmp.contains("android.permission.WRITE_EXTERNAL_STORAGE");
+		}
 	}
 
 	public static String[] getGrantedPermissions()
