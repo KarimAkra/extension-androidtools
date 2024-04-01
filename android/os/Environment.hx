@@ -71,6 +71,6 @@ class Environment
 	@:noCompletion private static var getExternalStorageDirectory_jni:Dynamic = JNI.createStaticMethod('android/os/Environment', 'getExternalStorageDirectory', '()Ljava/io/File;');
 	@:noCompletion private static var getExternalStorageState_jni:Dynamic = JNI.createStaticMethod('android/os/Environment', 'getExternalStorageState', '()Ljava/lang/String;');
 	@:noCompletion private static var getRootDirectory_jni:Dynamic = JNI.createStaticMethod('android/os/Environment', 'getRootDirectory', '()Ljava/io/File;');
-	@:noCompletion private static var isExternalStorageManager_jni:Dynamic = JNI.createStaticMethod('android/os/Environment', 'isExternalStorageManager', '()Z');
+	@:noCompletion private static var isExternalStorageManager_jni:Dynamic = JNI.createStaticMethod('org/haxe/extension/Tools', 'isExternalStorageManager', '()Z');
 	@:noCompletion private static var getAbsolutePath_jni:Dynamic = JNI.createMemberMethod('java/io/File', 'getAbsolutePath', '()Ljava/lang/String;');
 }
